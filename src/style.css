@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'Lexend Deca';
+  src: url('LexendDeca-VariableFont_wght.ttf');
+  font-style: normal;
+  font-weight: 375 600;
+}
+
+body {
+	align-items: center;
+	display: flex;
+	font-family: 'Lexend Deca';
+	overscroll-behavior: none;
+}
+
+#app {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+#score {
+	margin: 24px;
+	text-align: center;
+}
+
+#word {
+	box-sizing: content-box;
+	font-size: 32px;
+	font-weight: 550;
+	line-height: 1;
+	min-height: 32px;
+	padding: 24px;
+	text-align: center;
+	text-transform: uppercase;
+	word-break: break-all;
+}
+
+#puzzle {
+	aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(32px, 48px));
+	grid-template-rows: repeat(8, minmax(32px, 48px));
+  gap: 8px;
+	justify-content: center;
+  margin: 8px;
+
+  button {
+		--gradient: transparent 45%, lightcoral 45%, lightcoral 55%, transparent 55%;
+
+		align-items: center;
+		background: transparent;
+		border-color: transparent;
+		border-radius: 50px;
+		color: black;
+		display: flex;
+		font-size: 32px;
+		font-weight: 400;
+		height: 100%;
+		justify-content: center;
+		padding: 0;
+		position: relative;
+		text-transform: uppercase;
+		user-select: none;
+    width: 100%;
+
+		&::after {
+			content: '';
+			position: absolute;
+		}
+  }
+
+	.pressed {
+		background: lightcoral;
+		animation: pressed 0.3 infinite;
+	}
+}
+
+@keyframes pressed {
+	50% {
+		scale: 1.2;
+	}
+}
+
+
+.from-top,
+.from-bottom {
+	&::after {
+		background: linear-gradient(90deg, var(--gradient));
+		height: 10px;
+		width: 50px;
+	}
+}
+
+.from-left,
+.from-right {
+	&::after {
+		background: linear-gradient(var(--gradient));
+		height: 50px;
+		width: 10px;
+	}
+}
+
+.from-top {
+	&::after {
+		top: -10px;
+	}
+}
+
+.from-bottom {
+	&::after {
+		bottom: -10px;
+	}
+}
+
+.from-left {
+	&::after {
+		left: -10px;
+	}
+}
+
+.from-right {
+	&::after {
+		right: -10px;
+	}
+}
+
+.from-top-left,
+.from-top-right,
+.from-bottom-right,
+.from-bottom-left {
+	&::after {
+		height: 30px;
+		width: 30px;
+	}
+}
+
+.from-top-left,
+.from-bottom-right {
+	&::after {
+		background: linear-gradient(45deg, var(--gradient));
+	}
+}
+
+.from-top-right,
+.from-bottom-left {
+	&::after {
+		background: linear-gradient(135deg, var(--gradient));
+	}
+}
+
+
+.from-top-left,
+.from-top-right {
+	&::after {
+		top: -20px;
+	}
+}
+
+
+.from-bottom-left,
+.from-bottom-right {
+	&::after {
+		bottom: -20px;
+	}
+}
+
+
+.from-top-left,
+.from-bottom-left {
+	&::after {
+		left: -20px;
+	}
+}
+
+
+.from-top-right,
+.from-bottom-right {
+	&::after {
+		right: -20px;
+	}
+}
