@@ -34,7 +34,7 @@ function isAdjacent(a, b) {
 	return false
 }
 
-function Button({index, letter}) {
+function Button({ index, letter }) {
 	const direction = useComputed(() => {
 		const sequenceIndex = sequence.value.indexOf(index)
 		if (sequenceIndex < 1) return ''
@@ -69,7 +69,7 @@ function Button({index, letter}) {
 	}
 
 	const classes = classnames(direction, {
-		'pressed' : sequence.value.includes(index),
+		'pressed': sequence.value.includes(index),
 	})
 
 	return (
