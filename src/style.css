@@ -1,8 +1,13 @@
+:root {
+	--red: oklch(70% 0.2171 19.46);
+	--blue: oklch(84.67% 0.1542 186.26);
+}
+
 @font-face {
-  font-family: 'Lexend Deca';
-  src: url('LexendDeca-VariableFont_wght.ttf');
-  font-style: normal;
-  font-weight: 375 600;
+	font-family: 'Lexend Deca';
+	src: url('LexendDeca-VariableFont_wght.ttf');
+	font-style: normal;
+	font-weight: 375 600;
 }
 
 body {
@@ -36,15 +41,15 @@ body {
 
 #puzzle {
 	aspect-ratio: 1 / 1;
-  display: grid;
-  grid-template-columns: repeat(8, minmax(32px, 48px));
+	display: grid;
+	grid-template-columns: repeat(8, minmax(32px, 48px));
 	grid-template-rows: repeat(8, minmax(32px, 48px));
-  gap: 8px;
+	gap: 8px;
 	justify-content: center;
-  margin: 8px;
+	margin: 8px;
 
-  button {
-		--gradient: transparent 45%, lightcoral 45%, lightcoral 55%, transparent 55%;
+	button {
+		--gradient: transparent 45%, var(--red) 45%, var(--red) 55%, transparent 55%;
 
 		align-items: center;
 		background: transparent;
@@ -60,17 +65,37 @@ body {
 		position: relative;
 		text-transform: uppercase;
 		user-select: none;
-    width: 100%;
+		width: 100%;
 
 		&::after {
 			content: '';
 			position: absolute;
 		}
-  }
+	}
 
 	.pressed {
-		background: lightcoral;
+		background: var(--red);
 		animation: pressed 0.3 infinite;
+	}
+}
+
+.multiplier {
+	background: rgb(255 255 255 / 0.5);
+	border-radius: 100%;
+	bottom: -4px;
+	color: slategray;
+	display: flex;
+	font-size: 12px;
+	height: 18px;
+	place-content: center;
+	position: absolute;
+	right: -4px;
+	width: 18px;
+	z-index: 2;
+
+	&::after {
+		content: 'x';
+		text-transform: lowercase;
 	}
 }
 

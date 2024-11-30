@@ -75,6 +75,9 @@ function Button({ index, letter }) {
 	return (
 		<button onPointerDown={pressed} onPointerEnter={entered} onPointerUp={released} class={classes}>
 			{letter}
+			{Math.random() > 0.9 && (
+				<span class="multiplier">2</span>
+			)}
 		</button>
 	)
 }
